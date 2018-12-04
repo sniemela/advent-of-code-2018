@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -18,25 +19,21 @@ func part1(ids []string) int {
 	boxesWithThreeMatches := 0
 
 	for _, id := range ids {
-		letterCount := make(map[rune]int)
+		two := 0
+		three := 0
+		split := strings.Split(id, "")
 
-		for _, letter := range id {
-			letterCount[letter]++
-		}
-
-		for _, v := range letterCount {
-			if v == 2 {
-				boxesWithTwoMatches++
-				break
+		for _, letter := range split {
+			count := strings.Count(id, letter)
+			if count == 2 {
+				two = 1
+			} else if count == 3 {
+				three = 1
 			}
 		}
 
-		for _, v := range letterCount {
-			if v == 3 {
-				boxesWithThreeMatches++
-				break
-			}
-		}
+		boxesWithTwoMatches += two
+		boxesWithThreeMatches += three
 	}
 
 	return boxesWithTwoMatches * boxesWithThreeMatches
