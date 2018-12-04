@@ -19,12 +19,20 @@ func main() {
 	fmt.Printf("Part 2 = %d\n", part2(0, offsets))
 }
 
+func part1(currentFrequency int, offsets []int) int {
+	for _, offset := range offsets {
+		currentFrequency += offset
+	}
+	return currentFrequency
+}
+
 func part2(currentFrequency int, offsets []int) int {
 	var seen []int
 
 	// We have seen the current frequency
 	seen = append(seen, currentFrequency)
 
+	// Using a brute force algorithm to find the match
 	for {
 		for _, offset := range offsets {
 			currentFrequency += offset
@@ -38,13 +46,6 @@ func part2(currentFrequency int, offsets []int) int {
 			seen = append(seen, currentFrequency)
 		}
 	}
-}
-
-func part1(currentFrequency int, offsets []int) int {
-	for _, offset := range offsets {
-		currentFrequency += offset
-	}
-	return currentFrequency
 }
 
 func frequencyOffsets(filename string) ([]int, error) {
