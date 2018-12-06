@@ -74,7 +74,7 @@ func compare(a, b string) int {
 }
 
 func readBoxIds(filename string) []string {
-	file, _ := os.Open("input.txt")
+	file, _ := os.Open(filename)
 	scanner := bufio.NewScanner(file)
 	var ids []string
 
