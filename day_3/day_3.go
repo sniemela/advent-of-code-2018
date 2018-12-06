@@ -61,9 +61,9 @@ func main() {
 
 	fmt.Printf("Part 1 (overlaps): %d\n", overlaps)
 
-	for _, v := range inchOwners {
-		if v.free {
-			fmt.Printf("Part 2 (free claim): %s\n", v.claimID)
+	for _, claim := range inchOwners {
+		if claim.free {
+			fmt.Printf("Part 2 (free claim): %s\n", claim.claimID)
 			break
 		}
 	}
