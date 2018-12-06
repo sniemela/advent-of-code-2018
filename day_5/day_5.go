@@ -26,8 +26,8 @@ func part2() int {
 	bestScore := math.MaxInt32
 	var bestChar string
 
-	for i := 0; i < len(testChars); i++ {
-		char := string(testChars[i])
+	for _, r := range testChars {
+		char := string(r)
 		polymerStr := string(polymer)
 		polymerStr = strings.Replace(strings.Replace(polymerStr, strings.ToUpper(char), "", -1), char, "", -1)
 
